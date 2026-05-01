@@ -2,6 +2,7 @@ import { CharacterGrid } from "@/features/characters/components/CharacterGrid";
 import type { Slide, VideoState } from "../types";
 import { HeroSlide } from "./slides/HeroSlide";
 import { MechanicsSlide } from "./slides/MechanicsSlide";
+import { SplashSlide } from "./slides/SplashSlide";
 import { TopicsSlide } from "./slides/TopicsSlide";
 import { VideosSlide } from "./slides/VideosSlide";
 
@@ -10,6 +11,7 @@ type SlideViewProps = {
   onNext: () => void;
   onOpenCharacter: (slug: string) => void;
   onOpenVideo: (video: VideoState) => void;
+  mode?: "deck" | "splash";
 };
 
 export function SlideView({
@@ -17,7 +19,17 @@ export function SlideView({
   onNext,
   onOpenCharacter,
   onOpenVideo,
+  mode = "deck",
 }: SlideViewProps) {
+  if (mode === "splash") {
+    return (
+      <SplashSlide
+        title="Guilty Gear Strive"
+        onStartPresentation={onNext}
+      />
+    );
+  }
+
   if (slide.type === "hero") {
     return (
       <HeroSlide slide={slide} onNext={onNext} onOpenVideo={onOpenVideo} />
