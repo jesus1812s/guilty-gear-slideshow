@@ -731,7 +731,7 @@ p {
 }
 
 .character-grid {
-  grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   max-height: min(52vh, 560px);
   overflow: auto;
   padding-right: 6px;
@@ -824,10 +824,11 @@ p {
   align-items: center;
   cursor: pointer;
   display: grid;
-  grid-template-rows: 94px auto auto;
+  grid-template-rows: 116px auto auto;
   justify-items: center;
-  min-height: 184px;
+  min-height: 228px;
   overflow: hidden;
+  padding: 20px 14px;
   text-align: center;
 }
 
@@ -841,9 +842,20 @@ p {
   right: 10px;
 }
 
+.character-chibi-frame {
+  align-items: center;
+  display: flex !important;
+  height: 116px;
+  justify-content: center;
+  margin: 0 !important;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
 .character-chibi {
-  height: 92px;
-  max-width: 116px;
+  height: 112px;
+  max-width: 142px;
   object-fit: contain;
   position: relative;
   z-index: 1;
@@ -1029,26 +1041,31 @@ p {
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
 }
 
-.detail-portrait {
-  background:
-    linear-gradient(135deg, rgba(225, 25, 34, 0.36), transparent 50%),
-    var(--panel);
-  border: 1px solid var(--line);
-  min-height: 560px;
+.detail-portrait-shell {
   position: sticky;
   top: 110px;
 }
 
+.detail-portrait {
+  align-items: flex-end;
+  background:
+    linear-gradient(135deg, rgba(225, 25, 34, 0.36), transparent 50%),
+    var(--panel);
+  border: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  min-height: 560px;
+  overflow: hidden;
+  position: relative;
+}
+
 .detail-portrait .detail-portrait-image {
-  bottom: 0;
-  height: 100%;
-  left: 50%;
+  height: auto;
   max-height: 620px;
   max-width: 100%;
   object-fit: contain;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 100%;
+  position: relative;
+  width: auto;
   z-index: 1;
 }
 
@@ -1079,6 +1096,15 @@ p {
   display: grid;
   gap: 10px;
   margin-top: 28px;
+}
+
+.character-subtext {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.3vw, 2.2rem);
+  line-height: 1.08;
+  max-width: 22ch;
+  text-transform: uppercase;
 }
 
 .stat-row {
@@ -1280,10 +1306,13 @@ p {
     width: min(300px, 88vw);
   }
 
-  .detail-portrait {
-    min-height: 320px;
+  .detail-portrait-shell {
     position: relative;
     top: auto;
+  }
+
+  .detail-portrait {
+    min-height: 320px;
   }
 }
 

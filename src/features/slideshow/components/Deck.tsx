@@ -46,7 +46,7 @@ export function Deck() {
 
   const startPresentation = () => {
     setIntroPhase("heaven-or-hell");
-    setMusicStarted(true);
+    window.setTimeout(() => setMusicStarted(true), 1000);
     setSelectedCharacter(null);
     setNotesOpen(false);
     goToSlide(0);

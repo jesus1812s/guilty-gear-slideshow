@@ -21,13 +21,15 @@ export function CharacterCard({ character, onClick }: CharacterCardProps) {
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 240, damping: 18 }}
     >
-      <Image
-        className="character-chibi"
-        src={character.chibiSrc}
-        alt=""
-        width={140}
-        height={120}
-      />
+      <span className="character-chibi-frame">
+        <Image
+          className="character-chibi"
+          src={character.chibiSrc}
+          alt=""
+          width={150}
+          height={124}
+        />
+      </span>
       <strong>{character.name}</strong>
       <span>{character.archetype}</span>
       <div className="tooltip">{character.short}</div>
