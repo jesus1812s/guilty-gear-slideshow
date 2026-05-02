@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 type MusicPlayerProps = {
   isActive: boolean;
+  isPaused: boolean;
   track: MusicTrack;
 };
 
@@ -12,6 +13,7 @@ type MusicTrack = "credits" | "main";
 
 type YouTubePlayer = {
   destroy: () => void;
+  pauseVideo: () => void;
   playVideo: () => void;
   setVolume: (volume: number) => void;
 };
@@ -47,7 +49,7 @@ const musicTracks: Record<
     fallbackUrl:
       "https://www.youtube-nocookie.com/embed/hWPi-G14QEY?autoplay=1&rel=0",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       controls: 1,
       playsinline: 1,
       rel: 0,
@@ -58,7 +60,7 @@ const musicTracks: Record<
     fallbackUrl:
       "https://www.youtube-nocookie.com/embed/yYhYueboxuM?autoplay=1&list=PLpOrzUG88lRS7ilTJYV-tieNtR9PxKKIy&listType=playlist&rel=0",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       controls: 1,
       list: "PLpOrzUG88lRS7ilTJYV-tieNtR9PxKKIy",
       listType: "playlist",
@@ -114,12 +116,17 @@ function loadYouTubeApi() {
   return youtubeApiPromise;
 }
 
-export function MusicPlayer({ isActive, track }: MusicPlayerProps) {
+export function MusicPlayer({ isActive, isPaused, track }: MusicPlayerProps) {
   const [expanded, setExpanded] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
+  const isPausedRef = useRef(isPaused);
   const playerContainerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YouTubePlayer | null>(null);
   const musicTrack = musicTracks[track];
+
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
 
   useEffect(() => {
     if (!isActive || !playerContainerRef.current || useFallback) {
@@ -148,7 +155,11 @@ export function MusicPlayer({ isActive, track }: MusicPlayerProps) {
           events: {
             onReady: (event) => {
               event.target.setVolume(50);
-              event.target.playVideo();
+              if (isPausedRef.current) {
+                event.target.pauseVideo();
+              } else {
+                event.target.playVideo();
+              }
             },
           },
         });
@@ -166,6 +177,18 @@ export function MusicPlayer({ isActive, track }: MusicPlayerProps) {
       container.replaceChildren();
     };
   }, [isActive, musicTrack, useFallback]);
+
+  useEffect(() => {
+    if (!isActive || useFallback) {
+      return;
+    }
+
+    if (isPaused) {
+      playerRef.current?.pauseVideo();
+    } else {
+      playerRef.current?.playVideo();
+    }
+  }, [isActive, isPaused, useFallback]);
 
   if (!isActive) return null;
 
@@ -190,7 +213,7 @@ export function MusicPlayer({ isActive, track }: MusicPlayerProps) {
       <div className="music-player-frame" aria-hidden={!expanded}>
         {useFallback ? (
           <iframe
-            src={musicTrack.fallbackUrl}
+            src={isPaused ? "about:blank" : musicTrack.fallbackUrl}
             title="Guilty Gear Strive playlist"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen

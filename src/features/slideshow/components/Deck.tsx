@@ -181,6 +181,7 @@ export function Deck() {
         {introPhase === "heaven-or-hell" || introPhase === "deck" ? (
           <MusicPlayer
             isActive={musicStarted}
+            isPaused={Boolean(video)}
             track={slide.type === "credits" ? "credits" : "main"}
           />
         ) : null}
