@@ -9,7 +9,7 @@ type CharacterSeed = {
 
 type CharacterCopy = Pick<
   Character,
-  "bio" | "hotTake" | "referenceVideo" | "subtext" | "trailerVideo"
+  "bio" | "hotTake" | "referenceVideo" | "subtext" | "themeVideo" | "trailerVideo"
 >;
 
 const archetypeStats: Record<string, Record<string, number>> = {
@@ -93,7 +93,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Homunculo aferrada con amor",
     referenceVideo: yt("DMpZGepAo-k"),
     subtext: "Llama de celos que lo consume todo.",
-    trailerVideo: yt("mQM6Oq5OkBk"),
+    themeVideo: yt("mQM6Oq5OkBk"),
+    trailerVideo: yt("Zw27ebxQi14"),
   },
   "anji-mito": {
     bio:
@@ -101,7 +102,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Bailarin marcial elegante",
     referenceVideo: yt("V-AuWP9gQao"),
     subtext: "Sus pasos elegantes evaden ataques mientras contraataca.",
-    trailerVideo: yt("Mkiua6E3s7o"),
+    themeVideo: yt("Mkiua6E3s7o"),
+    trailerVideo: yt("vA-HozXUON4"),
   },
   "asuka-r-sharp": {
     bio:
@@ -109,7 +111,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Maestro de hechiceria",
     referenceVideo: yt("tx9q-zGbLfw"),
     subtext: "Reza por la acumulacion de buena voluntad.",
-    trailerVideo: yt("Gk9a5tQ_NGc"),
+    themeVideo: yt("Gk9a5tQ_NGc"),
+    trailerVideo: yt("3017rq1gTmo"),
   },
   "axl-low": {
     bio:
@@ -117,7 +120,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Especialista de largo alcance",
     referenceVideo: yt("yA_wMM8AbBg"),
     subtext: "Ataca desde lejos; no puedes tocarlo.",
-    trailerVideo: yt("MpiVAQcptKg"),
+    themeVideo: yt("MpiVAQcptKg"),
+    trailerVideo: yt("e_C7DZLN7sU"),
   },
   baiken: {
     bio:
@@ -125,7 +129,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Samurai despierta e inquebrantable",
     referenceVideo: yt("lxrsPZeBUnw"),
     subtext: "Usa la fuerza del rival como propia.",
-    trailerVideo: yt("EsyJzQIqo84"),
+    themeVideo: yt("EsyJzQIqo84"),
+    trailerVideo: yt("AT8Bb-YvLf4"),
   },
   bedman: {
     bio:
@@ -133,7 +138,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Maquina guardian propensa a errores",
     referenceVideo: yt("O6_Q8X7lVoE"),
     subtext: "Pelea sin importar su propia destruccion.",
-    trailerVideo: yt("qU6CKLe3q24"),
+    themeVideo: yt("qU6CKLe3q24"),
+    trailerVideo: yt("JRrchws1iD0"),
   },
   bridget: {
     bio:
@@ -141,7 +147,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Spinner libre y tramposa",
     referenceVideo: yt("wV_pdaiz7uU"),
     subtext: "Vuela sin restricciones dominando el yo-yo.",
-    trailerVideo: yt("69VV0pH57XE"),
+    themeVideo: yt("69VV0pH57XE"),
+    trailerVideo: yt("3GYL5FVpjG4"),
   },
   "chipp-zanuff": {
     bio:
@@ -149,15 +156,17 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Ninja de velocidad divina",
     referenceVideo: yt("T5ZbZaG26ZQ"),
     subtext: "Asalto supersonico abrumador.",
-    trailerVideo: yt("Ztj84zdkBnc"),
+    themeVideo: yt("Ztj84zdkBnc"),
+    trailerVideo: yt("mZJSCtsnhm0"),
   },
   dizzy: {
     bio:
       "Half-Gear nacida entre un Gear y una humana. Aunque al principio desconfiaba de los humanos, conocer personas amables la ayudo a superar esos sentimientos. Sincera y pura, ama la naturaleza y la humanidad, y detesta el conflicto. Tras vivir escondida, unirse a los Jellyfish Pirates, enamorarse de Ky y tener a Sin, ahora gobierna Vialattea junto a Ky. Todavia se acostumbra a sus deberes, pero encuentra plenitud cada dia.",
     hotTake: "Reina de compasion floreciente",
-    referenceVideo: yt("QNi0c0VMf2c"),
+    referenceVideo: yt("Qo5tFby3HLc"),
     subtext: "Alas luminosas que guian el camino.",
-    trailerVideo: yt("MrrvV0nQWkQ"),
+    themeVideo: yt("MrrvV0nQWkQ"),
+    trailerVideo: yt("nXDsAgYXXv4"),
   },
   "elphelt-valentine": {
     bio:
@@ -165,7 +174,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Tren bala de ensueno dulce",
     referenceVideo: yt("0YpdNXr6yHk"),
     subtext: "Enciende el impulso dentro de tu alma.",
-    trailerVideo: yt("rhlZY4D8jlQ"),
+    themeVideo: yt("rhlZY4D8jlQ"),
+    trailerVideo: yt("-W2xedNY4Xg"),
   },
   faust: {
     bio:
@@ -173,7 +183,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Doctor subterraneo",
     referenceVideo: yt("y9TZP9gJMcQ"),
     subtext: "Enganoso, enigmatico e incomprensible.",
-    trailerVideo: yt("sfRCnQH4c-I"),
+    themeVideo: yt("sfRCnQH4c-I"),
+    trailerVideo: yt("0-NeCgZrl-g"),
   },
   giovanna: {
     bio:
@@ -181,7 +192,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Agente secreto superpoderosa",
     referenceVideo: yt("9iHinojDtJI"),
     subtext: "Rushdown ofensivo al maximo.",
-    trailerVideo: yt("2rcEsHXCW1Q"),
+    themeVideo: yt("2rcEsHXCW1Q"),
+    trailerVideo: yt("9iHinojDtJI"),
   },
   "goldlewis-dickinson": {
     bio:
@@ -189,7 +201,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Secretario de defensa absoluta",
     referenceVideo: local("/videos/goldlewis algo mas.mp4"),
     subtext: "Fuerza bruta incomparable.",
-    trailerVideo: yt("2PHDCksHVQo"),
+    themeVideo: yt("2PHDCksHVQo"),
+    trailerVideo: yt("XQuwHHDs4T8"),
   },
   "happy-chaos": {
     bio:
@@ -197,7 +210,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Mesias roto pistolero",
     referenceVideo: yt("NUQ-Du0R8Ig"),
     subtext: "Restaurador de la humanidad.",
-    trailerVideo: yt("fMrpVDYZCbU"),
+    themeVideo: yt("fMrpVDYZCbU"),
+    trailerVideo: yt("uq67Oi5CRLI"),
   },
   "i-no": {
     bio:
@@ -205,7 +219,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Bruja hard rock",
     referenceVideo: yt("hXOlNum_sZA"),
     subtext: "Su ofensiva con hover dash es opresiva.",
-    trailerVideo: yt("Hd2Q1g_U9o0"),
+    themeVideo: yt("Hd2Q1g_U9o0"),
+    trailerVideo: yt("f9taTeo2WD0"),
   },
   "jack-o": {
     bio:
@@ -213,7 +228,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Marshal fighter hiperenergetica",
     referenceVideo: yt("_Audxh4hmac"),
     subtext: "Domina la batalla con un grupo de sirvientes.",
-    trailerVideo: yt("vHyGBWFOU-0"),
+    themeVideo: yt("vHyGBWFOU-0"),
+    trailerVideo: yt("AtOEI22wMCc"),
   },
   jam: {
     bio:
@@ -221,7 +237,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Chef de puno de hierro indomable",
     referenceVideo: local("/videos/jam algo mas.mp4"),
     subtext: "Fuego bajo, patadas altas.",
-    trailerVideo: yt("Kfb8WIBDasI"),
+    themeVideo: yt("Kfb8WIBDasI"),
+    trailerVideo: yt("OzgPYd3nweg"),
   },
   johnny: {
     bio:
@@ -229,7 +246,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Apostador nato",
     referenceVideo: yt("83lfNIJwDrs"),
     subtext: "Corta todo con un golpe invisible.",
-    trailerVideo: yt("xKgzFJnYonU"),
+    themeVideo: yt("xKgzFJnYonU"),
+    trailerVideo: yt("7J4dDxh_p7s"),
   },
   "ky-kiske": {
     bio:
@@ -237,7 +255,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "All-rounder absoluto",
     referenceVideo: yt("fYxxHLL3v_U"),
     subtext: "Maestro de una multitud de tecnicas.",
-    trailerVideo: yt("wNGTV92Y4O4"),
+    themeVideo: yt("wNGTV92Y4O4"),
+    trailerVideo: yt("DJki_1XHbX0"),
   },
   "leo-whitefang": {
     bio:
@@ -245,7 +264,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "All-rounder de espadas gemelas",
     referenceVideo: yt("JceoL1SKDwA"),
     subtext: "Presion aplastante desde su postura de espalda.",
-    trailerVideo: yt("4q7P-aqLzpM"),
+    themeVideo: yt("4q7P-aqLzpM"),
+    trailerVideo: yt("e84Z8-nPwAk"),
   },
   lucy: {
     bio:
@@ -253,7 +273,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Netrunner misteriosa",
     referenceVideo: yt("UNecAcrpaLI"),
     subtext: "Hacker elite, surfista del ciberespacio.",
-    trailerVideo: yt("bU4sButXYqQ"),
+    themeVideo: yt("bU4sButXYqQ"),
+    trailerVideo: yt("7sacvUzDV_Q"),
   },
   may: {
     bio:
@@ -261,7 +282,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "La chica imparable",
     referenceVideo: yt("I1NAF_n55DQ"),
     subtext: "Carga hacia adelante con energia vibrante.",
-    trailerVideo: yt("-8iJ2lzX6lE"),
+    themeVideo: yt("-8iJ2lzX6lE"),
+    trailerVideo: yt("f3WPYei07jM"),
   },
   "millia-rage": {
     bio:
@@ -269,7 +291,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Asesina de cabello prohibido",
     referenceVideo: yt("qniTns4Os8Q"),
     subtext: "Parpadea una vez y se acabo.",
-    trailerVideo: yt("7qsc2ydmLSM"),
+    themeVideo: yt("7qsc2ydmLSM"),
+    trailerVideo: yt("OaAXqlQKojo"),
   },
   nagoriyuki: {
     bio:
@@ -277,7 +300,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Noble samurai vampiro",
     referenceVideo: yt("PaF-zT_V_MI"),
     subtext: "Su espada chupasangre entrega un golpe devastador.",
-    trailerVideo: yt("vK-3vF0HgGw"),
+    themeVideo: yt("vK-3vF0HgGw"),
+    trailerVideo: yt("qNgbfTWjEsM"),
   },
   potemkin: {
     bio:
@@ -285,7 +309,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Fortaleza movil",
     referenceVideo: local("/videos/potemkim algo mas.mp4"),
     subtext: "Si caes en sus manos, se acaba el juego.",
-    trailerVideo: yt("LcYNqLwkM8I"),
+    themeVideo: yt("LcYNqLwkM8I"),
+    trailerVideo: yt("mZJSCtsnhm0"),
   },
   "ramlethal-valentine": {
     bio:
@@ -293,7 +318,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Brigadier de media distancia",
     referenceVideo: yt("Q-KvurPEgDM"),
     subtext: "Portadora de dos espadas gigantes.",
-    trailerVideo: yt("a_BwHtr-87U"),
+    themeVideo: yt("a_BwHtr-87U"),
+    trailerVideo: yt("pupxo_nEiuI"),
   },
   "sin-kiske": {
     bio:
@@ -301,7 +327,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Chico salvaje en crecimiento",
     referenceVideo: yt("hLXRUgFqLJ0"),
     subtext: "Persigue a su presa con su bandera de gran alcance.",
-    trailerVideo: yt("oplsTzYt71k"),
+    themeVideo: yt("oplsTzYt71k"),
+    trailerVideo: yt("G9bUcqJVasY"),
   },
   slayer: {
     bio:
@@ -309,7 +336,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Vampiro relajado y digno",
     referenceVideo: yt("oWdxOrNph54"),
     subtext: "Sus punos definen el dandismo.",
-    trailerVideo: yt("uh4Ic2hGoGA"),
+    themeVideo: yt("uh4Ic2hGoGA"),
+    trailerVideo: yt("rQkOfw5XWeo"),
   },
   "sol-badguy": {
     bio:
@@ -317,7 +345,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "El golpeador despiadado",
     referenceVideo: yt("mXYhQmbQXpY"),
     subtext: "Abruma a todos sus rivales con fuerza salvaje.",
-    trailerVideo: yt("gp4-n_u-qM0"),
+    themeVideo: yt("gp4-n_u-qM0"),
+    trailerVideo: yt("DJki_1XHbX0"),
   },
   testament: {
     bio:
@@ -325,7 +354,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Grim Reaper elegante",
     referenceVideo: yt("9qzct2NrJm0"),
     subtext: "Guadana carmesi que baila con encanto.",
-    trailerVideo: yt("d1NTpgzhXAY"),
+    themeVideo: yt("d1NTpgzhXAY"),
+    trailerVideo: yt("-s5wdI6n0rg"),
   },
   unika: {
     bio:
@@ -333,7 +363,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Super novata con arma truco",
     referenceVideo: yt("jScxTXM11uo"),
     subtext: "Trueno resonante sin mancha.",
-    trailerVideo: yt("cVAqSQ6xBQo"),
+    themeVideo: yt("cVAqSQ6xBQo"),
+    trailerVideo: yt("eIVRfn0bjtk"),
   },
   venom: {
     bio:
@@ -341,7 +372,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Fantasma billar purpura",
     referenceVideo: yt("zqasSYEuQ1k"),
     subtext: "Perseguidor implacable en la oscuridad.",
-    trailerVideo: yt("RrfRMIa5VaI"),
+    themeVideo: yt("RrfRMIa5VaI"),
+    trailerVideo: yt("0Ds4zgV8ZW4"),
   },
   "zato-1": {
     bio:
@@ -349,7 +381,8 @@ const characterCopy: Record<string, CharacterCopy> = {
     hotTake: "Guerrero tecnico de sombras",
     referenceVideo: yt("Ppct7o8Eq_A"),
     subtext: "Ofensiva sofocante junto a su sombra.",
-    trailerVideo: yt("5OfIZ3gJmAM"),
+    themeVideo: yt("5OfIZ3gJmAM"),
+    trailerVideo: yt("OaAXqlQKojo"),
   },
 };
 

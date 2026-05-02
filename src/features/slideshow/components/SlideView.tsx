@@ -1,6 +1,7 @@
 import { CharacterGrid } from "@/features/characters/components/CharacterGrid";
 import type { Slide, VideoState } from "../types";
 import { HeroSlide } from "./slides/HeroSlide";
+import { CreditsSlide } from "./slides/CreditsSlide";
 import { MechanicsSlide } from "./slides/MechanicsSlide";
 import { SplashSlide } from "./slides/SplashSlide";
 import { TopicsSlide } from "./slides/TopicsSlide";
@@ -55,6 +56,10 @@ export function SlideView({
 
   if (slide.type === "videos") {
     return <VideosSlide slide={slide} onOpenVideo={onOpenVideo} />;
+  }
+
+  if (slide.type === "credits") {
+    return <CreditsSlide slide={slide} />;
   }
 
   return <TopicsSlide slide={slide} onOpenVideo={onOpenVideo} />;

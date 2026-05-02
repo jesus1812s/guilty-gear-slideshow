@@ -157,7 +157,11 @@ button {
 }
 
 .nav-arrow-icon.previous {
-  transform: rotate(180deg);
+  transform: rotate(-90deg);
+}
+
+.nav-arrow-icon:not(.previous) {
+  transform: rotate(90deg);
 }
 
 .progress {
@@ -516,6 +520,12 @@ button {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.slide.full h2 {
+  font-size: clamp(2.7rem, 6vw, 6.4rem);
+  max-width: none;
+  white-space: nowrap;
+}
+
 .kicker {
   color: var(--gold);
   font-family: var(--font-display);
@@ -584,6 +594,64 @@ p {
   background: transparent;
   border: 1px solid var(--line);
   color: var(--ink);
+}
+
+.action-button-impact {
+  overflow: hidden;
+  position: relative;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.action-button-impact::before,
+.action-button-impact::after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.action-button-impact::before {
+  background:
+    linear-gradient(105deg, transparent 0 38%, rgba(246, 241, 223, 0.95) 39% 43%, transparent 44%),
+    linear-gradient(115deg, transparent 0 54%, rgba(225, 25, 34, 0.82) 55% 60%, transparent 61%);
+  inset: -65%;
+  mix-blend-mode: screen;
+  transform: translateX(-40%) skewX(-16deg);
+  z-index: 0;
+}
+
+.action-button-impact::after {
+  background:
+    repeating-linear-gradient(115deg, transparent 0 10px, rgba(244, 183, 52, 0.48) 10px 12px),
+    radial-gradient(circle at 52% 48%, rgba(246, 241, 223, 0.5), transparent 38%);
+  inset: 0;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+.action-button-impact:hover,
+.action-button-impact:focus-visible {
+  animation: action-impact-shake 210ms steps(2, end);
+  border-color: rgba(244, 183, 52, 0.82);
+  box-shadow: 8px 8px 0 rgba(225, 25, 34, 0.42), 0 0 26px rgba(244, 183, 52, 0.26);
+}
+
+.action-button-impact:hover::before,
+.action-button-impact:focus-visible::before {
+  animation: impact-slash 360ms ease-out;
+}
+
+.action-button-impact:hover::after,
+.action-button-impact:focus-visible::after {
+  animation: impact-flash 260ms ease-out;
+}
+
+.action-button-impact span {
+  position: relative;
+  z-index: 1;
 }
 
 .media-panel {
@@ -745,7 +813,8 @@ p {
 
 .character-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  max-height: min(52vh, 560px);
+  margin-top: 22px;
+  max-height: min(58vh, 620px);
   overflow: auto;
   padding-right: 6px;
 }
@@ -762,6 +831,11 @@ p {
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
+.topic-card-button,
+.mechanic-card-button {
+  padding-right: 62px;
+}
+
 .topic-card-button {
   color: inherit;
   cursor: pointer;
@@ -772,6 +846,58 @@ p {
   color: inherit;
   cursor: pointer;
   font: inherit;
+}
+
+.impact-card {
+  overflow: hidden;
+}
+
+.impact-card::before,
+.impact-card::after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.impact-card::before {
+  background:
+    linear-gradient(105deg, transparent 0 38%, rgba(246, 241, 223, 0.92) 39% 42%, transparent 43%),
+    linear-gradient(115deg, transparent 0 54%, rgba(225, 25, 34, 0.78) 55% 59%, transparent 60%);
+  inset: -28%;
+  mix-blend-mode: screen;
+  transform: translateX(-34%) skewX(-16deg);
+  z-index: 0;
+}
+
+.impact-card::after {
+  background:
+    repeating-linear-gradient(115deg, transparent 0 14px, rgba(244, 183, 52, 0.52) 14px 16px),
+    radial-gradient(circle at 52% 48%, rgba(246, 241, 223, 0.52), transparent 34%);
+  inset: 0;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+.impact-card:hover,
+.impact-card:focus-visible {
+  animation: impact-card-shake 210ms steps(2, end);
+  box-shadow: 12px 12px 0 rgba(225, 25, 34, 0.42), 0 0 32px rgba(244, 183, 52, 0.26);
+}
+
+.impact-card:hover::before,
+.impact-card:focus-visible::before {
+  animation: impact-slash 360ms ease-out;
+}
+
+.impact-card:hover::after,
+.impact-card:focus-visible::after {
+  animation: impact-flash 260ms ease-out;
+}
+
+.impact-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .topic-card:hover,
@@ -803,19 +929,21 @@ p {
 .topic-play {
   align-items: center;
   background: var(--ink);
-  bottom: 16px;
   color: var(--void) !important;
   display: inline-flex !important;
   font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-size: 0;
   font-weight: 900;
-  gap: 8px;
-  margin-top: 18px !important;
-  padding: 8px 12px;
+  height: 38px;
+  justify-content: center;
+  margin-top: 0 !important;
+  padding: 0;
   position: absolute;
   right: 16px;
   text-transform: uppercase;
+  top: 14px;
   transform: skewX(-10deg);
+  width: 44px;
 }
 
 .topic-play::before {
@@ -906,9 +1034,12 @@ p {
 
 .video-strip {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 34px;
+  max-height: min(58vh, 620px);
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
 .video-tile {
@@ -1053,19 +1184,117 @@ p {
   background: #000;
   border: 1px solid var(--line);
   box-shadow: 0 22px 50px var(--shadow);
-  height: 180px;
+  height: 240px;
   margin-top: 12px;
   opacity: 1;
   overflow: hidden;
   pointer-events: auto;
   position: relative;
-  width: min(320px, 82vw);
+  width: min(420px, 88vw);
 }
 
-.music-player-frame iframe {
+.music-player-frame iframe,
+.music-player-api,
+.music-player-host {
   border: 0;
   height: 100%;
   width: 100%;
+}
+
+.credits-slide {
+  align-items: center;
+  background: transparent;
+  display: grid;
+  inset: 0;
+  justify-items: center;
+  min-height: calc(100vh - 166px);
+  overflow: hidden;
+  position: relative;
+}
+
+.timeup-stage {
+  aspect-ratio: 16 / 9;
+  display: grid;
+  height: calc(100vh - 166px);
+  margin-top: 0;
+  max-width: none;
+  place-items: center;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.timeup-eff,
+.timeup-frame {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  inset: 0;
+  position: absolute;
+}
+
+.timeup-eff {
+  background-image: url("/Strive_HUD/Battle_Xrd3_tex(HUD)/TXT_TIMEUP_EFF.png");
+  filter: drop-shadow(0 0 28px rgba(244, 183, 52, 0.58));
+  mix-blend-mode: screen;
+}
+
+.timeup-frame {
+  filter: drop-shadow(12px 10px 0 rgba(225, 25, 34, 0.62)) drop-shadow(0 0 24px rgba(246, 241, 223, 0.24));
+}
+
+@keyframes impact-card-shake {
+  0% {
+    transform: translate(0, -6px) scale(1.01);
+  }
+  35% {
+    transform: translate(-4px, -8px) scale(1.03);
+  }
+  70% {
+    transform: translate(5px, -5px) scale(1.02);
+  }
+  100% {
+    transform: translate(0, -6px) scale(1.01);
+  }
+}
+
+@keyframes action-impact-shake {
+  0% {
+    transform: skewX(-10deg) translate(0, 0) scale(1);
+  }
+  35% {
+    transform: skewX(-10deg) translate(-3px, -2px) scale(1.03);
+  }
+  70% {
+    transform: skewX(-10deg) translate(4px, 1px) scale(1.02);
+  }
+  100% {
+    transform: skewX(-10deg) translate(0, 0) scale(1);
+  }
+}
+
+@keyframes impact-slash {
+  0% {
+    opacity: 0;
+    transform: translateX(-42%) skewX(-16deg);
+  }
+  24% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(42%) skewX(-16deg);
+  }
+}
+
+@keyframes impact-flash {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.92;
+  }
 }
 
 .character-route {
@@ -1301,11 +1530,25 @@ p {
     padding: 104px 22px 48px;
   }
 
+  .slide.full h2 {
+    white-space: normal;
+  }
+
   .topic-grid,
   .character-grid,
   .mechanic-grid,
   .video-strip {
     grid-template-columns: 1fr;
+  }
+
+  .character-grid,
+  .video-strip {
+    margin-top: 20px;
+    max-height: 56vh;
+  }
+
+  .video-tile {
+    padding: 14px;
   }
 
   .media-panel {
@@ -1344,8 +1587,18 @@ p {
   }
 
   .music-player.is-expanded .music-player-frame {
-    height: 160px;
-    width: min(300px, 88vw);
+    height: 220px;
+    width: min(380px, 92vw);
+  }
+
+  .credits-slide {
+    min-height: calc(100vh - 152px);
+  }
+
+  .timeup-stage {
+    height: calc(100vh - 152px);
+    margin-top: 0;
+    width: 100%;
   }
 
   .detail-portrait-shell {
@@ -1355,6 +1608,12 @@ p {
 
   .detail-portrait {
     min-height: 320px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .video-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

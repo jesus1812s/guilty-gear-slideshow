@@ -40,7 +40,7 @@ export function TopicsSlide({ slide, onOpenVideo }: TopicsSlideProps) {
             if (video) {
               return (
                 <motion.button
-                  className="topic-card topic-card-button"
+                  className="topic-card topic-card-button impact-card"
                   key={title}
                   type="button"
                   aria-label={`Reproducir video: ${title}`}
@@ -56,7 +56,7 @@ export function TopicsSlide({ slide, onOpenVideo }: TopicsSlideProps) {
 
             return (
               <motion.div
-                className="topic-card"
+                className="topic-card impact-card"
                 key={title}
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}

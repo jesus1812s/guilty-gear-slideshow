@@ -39,7 +39,7 @@ export function MechanicsSlide({ slide, onOpenVideo }: MechanicsSlideProps) {
             if (video) {
               return (
                 <motion.button
-                  className="mechanic-card mechanic-card-button"
+                  className="mechanic-card mechanic-card-button impact-card"
                   key={name}
                   type="button"
                   aria-label={`Reproducir video: ${name}`}
@@ -55,7 +55,7 @@ export function MechanicsSlide({ slide, onOpenVideo }: MechanicsSlideProps) {
 
             return (
               <motion.div
-                className="mechanic-card"
+                className="mechanic-card impact-card"
                 key={name}
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}

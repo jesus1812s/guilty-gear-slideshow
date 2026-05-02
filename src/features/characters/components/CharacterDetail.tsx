@@ -15,7 +15,7 @@ export function CharacterDetail({
   onBack,
   onOpenVideo,
 }: CharacterDetailProps) {
-  const { referenceVideo, trailerVideo } = character;
+  const { referenceVideo, themeVideo, trailerVideo } = character;
 
   return (
     <section className="character-route">
@@ -47,11 +47,29 @@ export function CharacterDetail({
             ))}
           </div>
           <div className="cta-row">
+            {themeVideo ? (
+              <ActionButton
+                className="action-button-impact"
+                variant="ghost"
+                onClick={() => onOpenVideo(themeVideo)}
+              >
+                ESCUCHAR TEMA
+              </ActionButton>
+            ) : null}
             {trailerVideo ? (
-              <ActionButton onClick={() => onOpenVideo(trailerVideo)}>VER TRAILER</ActionButton>
+              <ActionButton
+                className="action-button-impact"
+                onClick={() => onOpenVideo(trailerVideo)}
+              >
+                VER TRAILER
+              </ActionButton>
             ) : null}
             {referenceVideo ? (
-              <ActionButton variant="ghost" onClick={() => onOpenVideo(referenceVideo)}>
+              <ActionButton
+                className="action-button-impact"
+                variant="ghost"
+                onClick={() => onOpenVideo(referenceVideo)}
+              >
                 ALGO MAS
               </ActionButton>
             ) : null}

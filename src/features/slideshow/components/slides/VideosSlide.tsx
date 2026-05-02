@@ -22,7 +22,7 @@ export function VideosSlide({ slide, onOpenVideo }: VideosSlideProps) {
         <h2>{slide.title}</h2>
         <p>{slide.copy}</p>
         <div className="video-strip">
-          {slide.videos.map(([title, kind, src]) => {
+          {slide.videos.map(([title, kind, src, start]) => {
             const thumbnailSrc = getThumbnailSrc(kind, src);
 
             return (
@@ -30,7 +30,7 @@ export function VideosSlide({ slide, onOpenVideo }: VideosSlideProps) {
                 className="video-tile"
                 key={`${kind}-${src}`}
                 type="button"
-                onClick={() => onOpenVideo({ kind, src })}
+                onClick={() => onOpenVideo({ kind, src, start })}
               >
                 {thumbnailSrc ? (
                   <img

@@ -46,7 +46,7 @@ export function Deck() {
 
   const startPresentation = () => {
     setIntroPhase("heaven-or-hell");
-    window.setTimeout(() => setMusicStarted(true), 1000);
+    window.setTimeout(() => setMusicStarted(true), 2000);
     setSelectedCharacter(null);
     setNotesOpen(false);
     goToSlide(0);
@@ -179,7 +179,10 @@ export function Deck() {
 
       <AnimatePresence>
         {introPhase === "heaven-or-hell" || introPhase === "deck" ? (
-          <MusicPlayer isActive={musicStarted} />
+          <MusicPlayer
+            isActive={musicStarted}
+            track={slide.type === "credits" ? "credits" : "main"}
+          />
         ) : null}
       </AnimatePresence>
 

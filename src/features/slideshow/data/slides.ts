@@ -75,7 +75,7 @@ export const slides: Slide[] = [
     kicker: "Roster",
     title: "33 personajes jugables",
     copy:
-      "Cada personaje no solo tiene lore y diseno: tambien tiene una filosofia de juego. El roster queda organizado por archetype, chibi para seleccion y portrait completo para la ficha.",
+      "Cada personaje tiene una identidad propia: se ve distinto, se mueve distinto y te obliga a pensar la pelea de otra manera. El roster es una vitrina de personalidades extremas, estilos de combate y fantasia visual.",
     notes:
       "Esta slide es ideal para interactuar en vivo. Muestra hover y entra al detalle de tu personaje favorito.",
   },
@@ -84,7 +84,7 @@ export const slides: Slide[] = [
     kicker: "Media",
     title: "Momentos para mostrar",
     copy:
-      "La presentacion debe respirar con clips: trailers, combos, intros, supers o canciones. Esta seccion ya tiene el reproductor listo para YouTube o videos locales.",
+      "Algunas cosas de Strive se entienden mejor viendolas en movimiento: musica, trailers, jugadas, animaciones y escenas que explican por que el juego se queda grabado en la cabeza.",
     videos: [
       ["Momento 01", "youtube", "JIC4j-DNgaA"],
       ["Momento 02", "youtube", "D_2PbKG5zMI"],
@@ -97,6 +97,12 @@ export const slides: Slide[] = [
       ["Momento 09", "youtube", "1gNfHJsXXo4"],
       ["Momento 10", "youtube", "0Ji1j5ndXNM"],
       ["Momento 11", "youtube", "jzXkl10Gxsg"],
+      ["Momento 12", "youtube", "F4kDkGvmb8M"],
+      ["Momento 13", "youtube", "CAaHsj_DgH0"],
+      ["Momento 14", "youtube", "ZXVbS-HV858", 149],
+      ["Momento 15", "youtube", "gszFxXFnyBU"],
+      ["Momento 16", "youtube", "tf4weV4Q-3w"],
+      ["Momento 17", "youtube", "oA4G0dEDxmc"],
     ],
     notes:
       "Reemplaza el ID de YouTube o agrega videos locales en public/videos. Clips de 15 a 30 segundos ayudan a no pasarte de tiempo.",
@@ -123,5 +129,12 @@ export const slides: Slide[] = [
     ],
     notes:
       "Cierra conectandolo contigo: tus gustos, tu lado programador y por que quisiste hacer la presentacion como web.",
+  },
+  {
+    type: "credits",
+    kicker: "Final Round",
+    title: "Gracias por ver",
+    notes:
+      "Cierre interactivo simple: TIME UP ocupa la pantalla y al click aparece YOU como agradecimiento final.",
   },
 ];

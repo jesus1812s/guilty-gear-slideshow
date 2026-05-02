@@ -13,6 +13,7 @@ export type Character = {
   chibiSrc: string;
   portraitSrc: string;
   stats: Record<string, number>;
+  themeVideo?: VideoState;
   trailerVideo?: VideoState;
   referenceVideo?: VideoState;
 };

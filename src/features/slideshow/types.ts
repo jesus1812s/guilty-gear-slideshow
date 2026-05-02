@@ -58,7 +58,13 @@ export type Slide =
       kicker: string;
       title: string;
       copy: string;
-      videos: [string, "youtube" | "local", string][];
+      videos: [string, "youtube" | "local", string, number?][];
+      notes: string;
+    }
+  | {
+      type: "credits";
+      kicker: string;
+      title: string;
       notes: string;
     };
 
