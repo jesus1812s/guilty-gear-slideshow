@@ -86,8 +86,17 @@ export const slides: Slide[] = [
     copy:
       "La presentacion debe respirar con clips: trailers, combos, intros, supers o canciones. Esta seccion ya tiene el reproductor listo para YouTube o videos locales.",
     videos: [
-      ["Opening movie", "youtube", "Yhr9WpjaDzw"],
-      ["Combo o super favorito", "local", "/videos/combo-demo.mp4"],
+      ["Momento 01", "youtube", "JIC4j-DNgaA"],
+      ["Momento 02", "youtube", "D_2PbKG5zMI"],
+      ["Momento 03", "youtube", "FJwQRmNxm_s"],
+      ["Momento 04", "youtube", "ByetrDRHPh4"],
+      ["Momento 05", "youtube", "C2QtEFP27xo"],
+      ["Momento 06", "youtube", "6CVx9tX__Dw"],
+      ["Momento 07", "youtube", "l91uAMquZfg"],
+      ["Momento 08", "youtube", "NBfRh9xNJT8"],
+      ["Momento 09", "youtube", "1gNfHJsXXo4"],
+      ["Momento 10", "youtube", "0Ji1j5ndXNM"],
+      ["Momento 11", "youtube", "jzXkl10Gxsg"],
     ],
     notes:
       "Reemplaza el ID de YouTube o agrega videos locales en public/videos. Clips de 15 a 30 segundos ayudan a no pasarte de tiempo.",

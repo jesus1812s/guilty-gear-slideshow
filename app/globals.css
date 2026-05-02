@@ -131,10 +131,13 @@ button {
 
 .icon-button,
 .close-video {
+  align-items: center;
   background: rgba(8, 7, 6, 0.72);
   border: 1px solid var(--line);
   box-shadow: 0 10px 28px var(--shadow);
   cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
   min-height: 42px;
   min-width: 42px;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
@@ -145,6 +148,16 @@ button {
   background: var(--red);
   border-color: rgba(246, 241, 223, 0.6);
   transform: translateY(-2px);
+}
+
+.nav-arrow-icon {
+  height: 28px;
+  object-fit: contain;
+  width: 28px;
+}
+
+.nav-arrow-icon.previous {
+  transform: rotate(180deg);
 }
 
 .progress {
@@ -894,17 +907,14 @@ p {
 .video-strip {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 34px;
 }
 
 .video-tile {
   align-items: end;
   aspect-ratio: 16 / 9;
-  background:
-    linear-gradient(135deg, rgba(225, 25, 34, 0.42), transparent 52%),
-    linear-gradient(315deg, rgba(244, 183, 52, 0.22), transparent 58%),
-    var(--panel-2);
+  background: var(--panel-2);
   border: 1px solid var(--line);
   cursor: pointer;
   display: flex;
@@ -912,6 +922,12 @@ p {
   padding: 18px;
   position: relative;
   text-align: left;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.video-tile:hover {
+  border-color: rgba(246, 241, 223, 0.64);
+  transform: translateY(-4px);
 }
 
 .video-tile::before {
@@ -923,13 +939,39 @@ p {
   position: absolute;
   top: 50%;
   transform: translate(-40%, -50%);
+  z-index: 2;
 }
 
-.video-tile strong {
+.video-tile::after {
+  background:
+    linear-gradient(180deg, rgba(8, 7, 6, 0.08), rgba(8, 7, 6, 0.88)),
+    linear-gradient(135deg, rgba(225, 25, 34, 0.3), transparent 58%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.video-thumbnail {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.video-thumbnail-fallback {
+  background:
+    linear-gradient(135deg, rgba(225, 25, 34, 0.42), transparent 52%),
+    linear-gradient(315deg, rgba(244, 183, 52, 0.22), transparent 58%),
+    var(--panel-2);
+}
+
+.video-title {
   font-family: var(--font-display);
   font-size: 1.3rem;
   text-transform: uppercase;
-  z-index: 1;
+  z-index: 3;
 }
 
 .speaker-notes {

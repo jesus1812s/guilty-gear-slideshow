@@ -1,8 +1,12 @@
+import Image from "next/image";
+
 type SlideControlsProps = {
   onPrevious: () => void;
   onNext: () => void;
   onToggleNotes: () => void;
 };
+
+const arrowSrc = "/Strive_HUD/Battle_Xrd3_tex(HUD)/Hud_Icon_Arrow.png";
 
 export function SlideControls({
   onPrevious,
@@ -18,7 +22,13 @@ export function SlideControls({
         title="Anterior"
         onClick={onPrevious}
       >
-        Prev
+        <Image
+          className="nav-arrow-icon previous"
+          src={arrowSrc}
+          alt=""
+          width={28}
+          height={28}
+        />
       </button>
       <button
         className="icon-button"
@@ -27,7 +37,13 @@ export function SlideControls({
         title="Siguiente"
         onClick={onNext}
       >
-        Next
+        <Image
+          className="nav-arrow-icon"
+          src={arrowSrc}
+          alt=""
+          width={28}
+          height={28}
+        />
       </button>
       <button
         className="icon-button"
