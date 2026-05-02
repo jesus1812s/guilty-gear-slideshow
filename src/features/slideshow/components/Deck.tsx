@@ -9,6 +9,7 @@ import { useSlideNavigation } from "../hooks/useSlideNavigation";
 import type { VideoState } from "../types";
 import { HeavenOrHellTransition } from "./HeavenOrHellTransition";
 import { IntroOpeningVideo } from "./IntroOpeningVideo";
+import { MusicPlayer } from "./MusicPlayer";
 import { ProgressBar } from "./ProgressBar";
 import { SlideControls } from "./SlideControls";
 import { SlideView } from "./SlideView";
@@ -21,6 +22,7 @@ export function Deck() {
   const { activeSlide, goToSlide, nextSlide, previousSlide } =
     useSlideNavigation(slides.length);
   const [introPhase, setIntroPhase] = useState<IntroPhase>("opening");
+  const [musicStarted, setMusicStarted] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState<string | null>(null);
   const [video, setVideo] = useState<VideoState | null>(null);
@@ -44,6 +46,7 @@ export function Deck() {
 
   const startPresentation = () => {
     setIntroPhase("heaven-or-hell");
+    setMusicStarted(true);
     setSelectedCharacter(null);
     setNotesOpen(false);
     goToSlide(0);
@@ -173,6 +176,12 @@ export function Deck() {
       {introPhase === "deck" ? (
         <SpeakerNotes isOpen={notesOpen} notes={slide.notes} />
       ) : null}
+
+      <AnimatePresence>
+        {introPhase === "heaven-or-hell" || introPhase === "deck" ? (
+          <MusicPlayer isActive={musicStarted} />
+        ) : null}
+      </AnimatePresence>
 
       <AnimatePresence>
         {video ? <VideoModal video={video} onClose={() => setVideo(null)} /> : null}
