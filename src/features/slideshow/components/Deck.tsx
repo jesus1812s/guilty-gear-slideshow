@@ -97,7 +97,7 @@ export function Deck() {
               onClick={() => goToDeckSlide(0)}
               aria-label="Ir al inicio"
             >
-              <span className="brand-mark">GG</span>
+              <span className="brand-mark brand-ok" aria-hidden="true" />
               <span>STRIVE.exe</span>
             </button>
 

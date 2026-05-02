@@ -1,3 +1,25 @@
+export type VideoState = {
+  kind: "youtube" | "local";
+  src: string;
+  start?: number;
+};
+
+export type TopicItem =
+  | [string, string]
+  | {
+      title: string;
+      description: string;
+      video?: VideoState;
+    };
+
+export type MechanicItem =
+  | [string, string]
+  | {
+      name: string;
+      description: string;
+      video?: VideoState;
+    };
+
 export type Slide =
   | {
       type: "hero";
@@ -13,7 +35,7 @@ export type Slide =
       kicker: string;
       title: string;
       copy: string;
-      topics: [string, string][];
+      topics: TopicItem[];
       notes: string;
     }
   | {
@@ -21,7 +43,7 @@ export type Slide =
       kicker: string;
       title: string;
       copy: string;
-      mechanics: [string, string][];
+      mechanics: MechanicItem[];
       notes: string;
     }
   | {
@@ -40,7 +62,3 @@ export type Slide =
       notes: string;
     };
 
-export type VideoState = {
-  kind: "youtube" | "local";
-  src: string;
-};

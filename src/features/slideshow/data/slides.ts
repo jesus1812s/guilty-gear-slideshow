@@ -19,18 +19,24 @@ export const slides: Slide[] = [
     copy:
       "Un fighting game de Arc System Works que mezcla anime, rock, metal, narrativa exagerada y sistemas de combate con mucha expresion personal.",
     topics: [
-      [
-        "2.5D visual",
-        "Modelos 3D tratados como animacion 2D, camaras dramaticas y poses con mucha lectura visual.",
-      ],
-      [
-        "Musica con identidad",
-        "Cada personaje se siente como una cancion, no solo como un set de movimientos.",
-      ],
-      [
-        "Accesible, no simple",
-        "Tiene entrada mas amable que juegos anteriores, pero conserva profundidad competitiva.",
-      ],
+      {
+        title: "2.5D visual",
+        description:
+          "Modelos 3D tratados como animacion 2D, camaras dramaticas y poses con mucha lectura visual.",
+        video: { kind: "local", src: "/videos/visual-2-5.mp4" },
+      },
+      {
+        title: "Musica con identidad",
+        description:
+          "Cada personaje se siente como una cancion, no solo como un set de movimientos.",
+        video: { kind: "youtube", src: "uOO9L1rkVQs", start: 669 },
+      },
+      {
+        title: "Accesible, no simple",
+        description:
+          "Tiene entrada mas amable que juegos anteriores, pero conserva profundidad competitiva.",
+        video: { kind: "youtube", src: "gfbche-D_Kk" },
+      },
     ],
     notes:
       "Resume el juego sin tecnicismos. Tu objetivo es que cualquiera entienda el atractivo general.",
@@ -42,18 +48,24 @@ export const slides: Slide[] = [
     copy:
       "Strive convierte cada decision en espectaculo: presion, defensa, recursos, riesgo y recompensa. El juego se entiende visualmente, pero premia estudiar.",
     mechanics: [
-      [
-        "Roman Cancel",
-        "Pausa, extiende o corrige acciones. Convierte decisiones pequenas en momentos grandes.",
-      ],
-      [
-        "Wall Break",
-        "Romper la pared cambia posicion, ritmo y recompensa. Hace que el combate avance como una escena de anime.",
-      ],
-      [
-        "Tension",
-        "El recurso que decide cuanto puedes arriesgar, defenderte o convertir un golpe en dano real.",
-      ],
+      {
+        name: "Roman Cancel",
+        description:
+          "Pausa, extiende o corrige acciones. Convierte decisiones pequenas en momentos grandes.",
+        video: { kind: "local", src: "/videos/roman cancel.mp4" },
+      },
+      {
+        name: "Wall Break",
+        description:
+          "Romper la pared cambia posicion, ritmo y recompensa. Hace que el combate avance como una escena de anime.",
+        video: { kind: "local", src: "/videos/wall break.mp4" },
+      },
+      {
+        name: "Tension",
+        description:
+          "El recurso que decide cuanto puedes arriesgar, defenderte o convertir un golpe en dano real.",
+        video: { kind: "local", src: "/videos/tension.mp4" },
+      },
     ],
     notes:
       "No expliques todos los inputs. Explica la fantasia: el jugador siente que dirige una pelea con estilo.",

@@ -7,6 +7,15 @@ type VideoModalProps = {
 };
 
 export function VideoModal({ video, onClose }: VideoModalProps) {
+  const youtubeParams = new URLSearchParams({
+    autoplay: "1",
+    rel: "0",
+  });
+
+  if (video.start) {
+    youtubeParams.set("start", String(video.start));
+  }
+
   return (
     <motion.section
       className="video-backdrop"
@@ -32,7 +41,7 @@ export function VideoModal({ video, onClose }: VideoModalProps) {
       >
         {video.kind === "youtube" ? (
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${video.src}?autoplay=1&rel=0`}
+            src={`https://www.youtube-nocookie.com/embed/${video.src}?${youtubeParams.toString()}`}
             title="Video de Guilty Gear Strive"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen

@@ -110,6 +110,18 @@ button {
   width: 46px;
 }
 
+.brand-ok {
+  background-color: transparent;
+  background-image: url("/Strive_HUD/Result_Xrd3_tex/Result_OKbutton.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: none;
+  height: 44px;
+  transform: none;
+  width: 44px;
+}
+
 .nav-actions,
 .cta-row {
   display: flex;
@@ -327,13 +339,22 @@ button {
 }
 
 .horh-stage {
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 4 / 1;
   display: grid;
-  grid-template-areas:
-    "heaven heaven or hell hell";
-  grid-template-columns: 1.2fr 0.2fr 0.38fr 0.2fr 1.2fr;
   max-width: min(1280px, 94vw);
   place-items: center;
+  position: relative;
+  width: 94vw;
+  z-index: 2;
+}
+
+.lets-rock-stage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: min(1320px, 94vw);
+  min-height: min(680px, 78vh);
   position: relative;
   width: 94vw;
   z-index: 2;
@@ -344,6 +365,39 @@ button {
   height: auto;
   object-fit: contain;
   position: relative;
+}
+
+.lets-rock-word {
+  filter: drop-shadow(14px 14px 0 rgba(225, 25, 34, 0.72)) drop-shadow(0 0 30px rgba(244, 183, 52, 0.44));
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 3;
+}
+
+.lets-rock-lets {
+  margin-bottom: clamp(-72px, -6vw, -22px);
+  width: min(58vw, 620px);
+}
+
+.lets-rock-rock {
+  margin-top: clamp(-42px, -3vw, -12px);
+  width: min(88vw, 1060px);
+}
+
+.lets-rock-eff {
+  filter: drop-shadow(0 0 34px rgba(244, 183, 52, 0.42));
+  left: 50%;
+  opacity: 0.78;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 820px);
+  z-index: 1;
+}
+
+.horh-combo {
+  width: min(92vw, 1180px);
 }
 
 .horh-heaven {
@@ -520,31 +574,60 @@ p {
 }
 
 .media-panel {
-  background:
-    linear-gradient(135deg, rgba(225, 25, 34, 0.2), transparent 38%),
-    linear-gradient(315deg, rgba(87, 214, 255, 0.1), transparent 44%),
-    var(--panel);
+  appearance: none;
+  background: #050403;
   border: 1px solid var(--line);
-  box-shadow: 22px 24px 0 rgba(225, 25, 34, 0.35), 0 26px 60px var(--shadow);
+  box-shadow: 18px 20px 0 rgba(225, 25, 34, 0.35), 0 26px 60px var(--shadow);
+  color: inherit;
+  cursor: pointer;
   min-height: 430px;
   overflow: hidden;
+  padding: 0;
   position: relative;
-  transform: skewX(-5deg);
-}
-
-.media-panel > * {
-  transform: skewX(5deg);
+  text-align: left;
+  transform: none;
+  width: 100%;
 }
 
 .media-label {
-  bottom: 24px;
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 7rem);
-  left: 26px;
-  line-height: 0.82;
-  max-width: 7ch;
+  align-items: center;
+  display: flex;
+  filter: drop-shadow(8px 8px 0 rgba(225, 25, 34, 0.7)) drop-shadow(0 0 18px rgba(244, 183, 52, 0.34));
+  gap: 10px;
+  left: 50%;
   position: absolute;
-  text-transform: uppercase;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(88%, 680px);
+  z-index: 2;
+}
+
+.media-label-lets,
+.media-label-rock {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+}
+
+.media-label-lets {
+  aspect-ratio: 646 / 194;
+  background-image: url("/assets/hud/txt-lets.png");
+  flex: 0 0 31%;
+}
+
+.media-label-rock {
+  aspect-ratio: 2048 / 672;
+  background-image: url("/assets/hud/txt-rock.png");
+  flex: 1;
+}
+
+.media-label-horh {
+  aspect-ratio: 4 / 1;
+  background-image: url("/Strive_HUD/Battle_Demo_tex/TXT_HorHl.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .media-tag {
@@ -557,6 +640,85 @@ p {
   position: absolute;
   text-transform: uppercase;
   top: 22px;
+  z-index: 3;
+}
+
+.hero-art {
+  background-image: url("/assets/gg/season-3-main-visual.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  inset: 0;
+  position: absolute;
+}
+
+.hero-art::after {
+  background: rgba(246, 241, 223, 0.18);
+  content: "";
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 180ms ease;
+}
+
+.media-panel:active .hero-art::after {
+  opacity: 1;
+}
+
+.hero-art-overlay {
+  background:
+    linear-gradient(90deg, rgba(5, 4, 3, 0.68), transparent 48%, rgba(5, 4, 3, 0.46)),
+    linear-gradient(0deg, rgba(5, 4, 3, 0.78), transparent 46%, rgba(5, 4, 3, 0.28)),
+    radial-gradient(circle at 70% 30%, rgba(244, 183, 52, 0.18), transparent 32%);
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.hero-hud-lines {
+  background:
+    linear-gradient(90deg, transparent, rgba(246, 241, 223, 0.78), transparent),
+    linear-gradient(90deg, transparent, rgba(225, 25, 34, 0.72), transparent);
+  height: 2px;
+  left: 22px;
+  position: absolute;
+  right: 22px;
+  top: 72px;
+  z-index: 2;
+}
+
+.hero-hud-lines::after {
+  background: rgba(246, 241, 223, 0.5);
+  content: "";
+  height: 2px;
+  left: 18%;
+  position: absolute;
+  right: 8%;
+  top: 280px;
+}
+
+.hero-carousel-dots {
+  align-items: center;
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  right: 20px;
+  z-index: 3;
+}
+
+.hero-carousel-dots span {
+  background: rgba(246, 241, 223, 0.34);
+  display: block;
+  height: 5px;
+  transform: skewX(-18deg);
+  transition: background 180ms ease, width 180ms ease;
+  width: 18px;
+}
+
+.hero-carousel-dots .is-active {
+  background: var(--gold);
+  width: 42px;
 }
 
 .topic-grid,
@@ -587,6 +749,18 @@ p {
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
+.topic-card-button {
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.mechanic-card-button {
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
 .topic-card:hover,
 .character-card:hover,
 .mechanic-card:hover {
@@ -611,6 +785,32 @@ p {
   display: block;
   line-height: 1.45;
   margin-top: 12px;
+}
+
+.topic-play {
+  align-items: center;
+  background: var(--ink);
+  bottom: 16px;
+  color: var(--void) !important;
+  display: inline-flex !important;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 900;
+  gap: 8px;
+  margin-top: 18px !important;
+  padding: 8px 12px;
+  position: absolute;
+  right: 16px;
+  text-transform: uppercase;
+  transform: skewX(-10deg);
+}
+
+.topic-play::before {
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid var(--void);
+  border-top: 7px solid transparent;
+  content: "";
+  display: block;
 }
 
 .number {
@@ -908,14 +1108,32 @@ p {
   }
 
   .horh-stage {
-    aspect-ratio: 9 / 10;
-    grid-template-areas:
-      "heaven"
-      "or"
-      "hell";
-    grid-template-columns: 1fr;
+    aspect-ratio: 4 / 1;
     max-width: 96vw;
     width: 96vw;
+  }
+
+  .lets-rock-stage {
+    min-height: min(560px, 72vh);
+    width: 96vw;
+  }
+
+  .lets-rock-lets {
+    margin-bottom: -22px;
+    width: 74vw;
+  }
+
+  .lets-rock-rock {
+    margin-top: -12px;
+    width: 96vw;
+  }
+
+  .lets-rock-eff {
+    width: 110vw;
+  }
+
+  .horh-combo {
+    width: 94vw;
   }
 
   .horh-heaven,
@@ -959,6 +1177,22 @@ p {
 
   .media-panel {
     min-height: 300px;
+  }
+
+  .media-label {
+    left: 50%;
+    top: 50%;
+    width: min(84vw, 520px);
+  }
+
+  .media-label-lets {
+    flex: none;
+    width: 38%;
+  }
+
+  .media-label-rock {
+    flex: none;
+    width: 100%;
   }
 
   .speaker-notes {

@@ -20,7 +20,7 @@ export function HeavenOrHellTransition({
   return (
     <motion.section
       className="horh-transition"
-      aria-label="Heaven or Hell"
+      aria-label="Let's Rock"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -28,58 +28,47 @@ export function HeavenOrHellTransition({
     >
       <div className="horh-raster" aria-hidden="true" />
       <motion.div
-        className="horh-stage"
+        className="lets-rock-stage"
         animate={
           reduceMotion
             ? { scale: 1 }
             : {
-                scale: [1, 1.018, 0.992, 1.01, 1],
-                x: [0, -8, 7, -3, 0],
+                scale: [1, 1.08, 0.98, 1.03, 1],
+                x: [0, -12, 10, -5, 0],
               }
         }
-        transition={{ duration: 1.1, delay: 0.62, ease: "easeOut" }}
+        transition={{ duration: 0.86, delay: 0.34, ease: "easeOut" }}
       >
         <motion.img
-          className="horh-word horh-heaven"
-          src="/assets/hud/heaven.png"
+          className="lets-rock-eff"
+          src="/Strive_HUD/Battle_Xrd3_tex(HUD)/LetsRock_EFF.png"
           alt=""
-          initial={{ opacity: 0, x: "-26vw", skewX: -14, scale: 1.08 }}
-          animate={{ opacity: 1, x: 0, skewX: 0, scale: 1 }}
-          transition={{ duration: reduceMotion ? 0.12 : 0.46, ease: "easeOut" }}
-        />
-        <motion.img
-          className="horh-word horh-hell"
-          src="/assets/hud/hell.png"
-          alt=""
-          initial={{ opacity: 0, x: "26vw", skewX: 14, scale: 1.08 }}
-          animate={{ opacity: 1, x: 0, skewX: 0, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.7, rotate: -8 }}
+          animate={{ opacity: [0, 1, 0.2], scale: [0.7, 1.7, 2.25], rotate: 0 }}
           transition={{
-            duration: reduceMotion ? 0.12 : 0.46,
-            delay: reduceMotion ? 0 : 0.16,
+            duration: reduceMotion ? 0.2 : 0.92,
+            delay: reduceMotion ? 0 : 0.34,
             ease: "easeOut",
           }}
         />
         <motion.img
-          className="horh-word horh-or"
-          src="/assets/hud/or.png"
+          className="lets-rock-word lets-rock-lets"
+          src="/Strive_HUD/Battle_Xrd3_tex(HUD)/TXT_LetsRock_Lets.png"
           alt=""
-          initial={{ opacity: 0, rotate: -28, scale: 0.7 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          transition={{
-            duration: reduceMotion ? 0.12 : 0.28,
-            delay: reduceMotion ? 0 : 0.48,
-            ease: "backOut",
-          }}
+          initial={{ opacity: 0, y: reduceMotion ? 0 : "-22vh", scale: 1.18 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: reduceMotion ? 0.12 : 0.42, ease: "easeOut" }}
         />
         <motion.img
-          className="horh-eff horh-eff-a"
-          src="/assets/hud/heaven-hell-eff.png"
+          className="lets-rock-word lets-rock-rock"
+          src="/Strive_HUD/Battle_Xrd3_tex(HUD)/TXT_LetsRock_RocK.png"
           alt=""
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: [0, 0.95, 0], scale: [0.6, 4.8, 8] }}
+          initial={{ opacity: 0, y: reduceMotion ? 0 : "24vh", scale: 1.2 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
-            duration: reduceMotion ? 0.18 : 0.82,
-            delay: reduceMotion ? 0.1 : 0.72,
+            duration: reduceMotion ? 0.12 : 0.46,
+            delay: reduceMotion ? 0 : 0.18,
+            ease: "easeOut",
           }}
         />
         <motion.div
@@ -96,21 +85,6 @@ export function HeavenOrHellTransition({
           animate={{ scaleX: 1, opacity: [0, 1, 0.82] }}
           transition={{ duration: reduceMotion ? 0.12 : 0.42, delay: 0.5 }}
         />
-      </motion.div>
-
-      <motion.div
-        className="lets-rock"
-        aria-label="Let's Rock"
-        initial={{ opacity: 0, scale: 1.22, y: 28 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{
-          duration: reduceMotion ? 0.12 : 0.28,
-          delay: reduceMotion ? 0.28 : 1.62,
-          ease: "easeOut",
-        }}
-      >
-        <motion.img className="lets" src="/assets/hud/txt-lets.png" alt="" />
-        <motion.img className="rock" src="/assets/hud/txt-rock.png" alt="" />
       </motion.div>
 
       <motion.div

@@ -50,12 +50,12 @@ export function SlideView({
   }
 
   if (slide.type === "mechanics") {
-    return <MechanicsSlide slide={slide} />;
+    return <MechanicsSlide slide={slide} onOpenVideo={onOpenVideo} />;
   }
 
   if (slide.type === "videos") {
     return <VideosSlide slide={slide} onOpenVideo={onOpenVideo} />;
   }
 
-  return <TopicsSlide slide={slide} />;
+  return <TopicsSlide slide={slide} onOpenVideo={onOpenVideo} />;
 }
