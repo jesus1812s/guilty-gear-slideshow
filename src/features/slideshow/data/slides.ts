@@ -103,6 +103,7 @@ export const slides: Slide[] = [
       ["Momento 15", "youtube", "gszFxXFnyBU"],
       ["Momento 16", "youtube", "tf4weV4Q-3w"],
       ["Momento 17", "youtube", "oA4G0dEDxmc"],
+      ["Momento 18", "youtube", "tWcaQ3gCbUU"],
     ],
     notes:
       "Reemplaza el ID de YouTube o agrega videos locales en public/videos. Clips de 15 a 30 segundos ayudan a no pasarte de tiempo.",
